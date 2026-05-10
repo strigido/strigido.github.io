@@ -1,1 +1,2 @@
+- slika od gonilnika
 - `favicon.ico`

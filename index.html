@@ -13,6 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-error-bars"></script>
     <script>
         Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
+        Chart.defaults.font.size = 16;
+        Chart.defaults.locale = 'de-DE';
 
         const grafSt = x => x.toFixed(3).replace('.', ',');
     </script>
@@ -48,10 +50,25 @@
             document.write(link);
         }
     </script>
+    <!-- kliki na slike jih povečajo -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("figure img").forEach(imgElement => {
+                console.log(imgElement);
+                imgElement.addEventListener("click", () => {
+                    console.log("imgElement: ", imgElement);
+                    window.open(imgElement.src, '_blank');
+                });
+            });
+        });
+    </script>
   </head>
   <body>
     <main>
-        <h1>Špagetolom</h1>
+        <header>
+            <span id="header-pd1">PROJEKTNO DELO 1</span>
+            <span id="header-spagetolom">ŠPAGETOLOM</span>
+        </header>
 
 
         <!-- UPOGIBANJE ŠPAGETOV -->
@@ -69,7 +86,7 @@
             <figcaption><script>setRef(SLIKA, "ref-slika-upognjevalec")</script> upognjevalec špagetov</figcaption>
         </figure>
         <figure>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/S8Q_l8cOnb8?si=80C08Z5BOjY9eJLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/S8Q_l8cOnb8?si=80C08Z5BOjY9eJLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <figcaption><script>setRef(VIDEO, "ref-video-upogibanje")</script> upočasnjen posnetek upogibanja špagetov</figcaption>
         </figure>
         <p>
@@ -248,4 +265,14 @@
         </p>
     </main>
   </body>
+
+  <footer>
+    <img id="fmf-logo" src="./media/UL_FMF_logoHOR-RGB_barv.png" alt="UL FMF logo" loading="lazy">
+    <p><script>
+        const imena = ["Simon Sovič", "Zal Pintar", "Katjuša Dolenšek"];
+        imena.sort(_ => Math.random() - 0.5);   // shuffle
+        document.write(imena.join(", "));
+    </script></p>
+    <p>Ljubljana, maj 2026</p>
+  </footer>
 </html>

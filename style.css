@@ -1,22 +1,133 @@
 
 body {
     width: 90%;
-    max-width: 35em;
+    max-width: 50em;
     margin-left: auto;
     margin-right: auto;
     min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
+p {
+    align-self: center;
+    text-align: justify;
+    max-width: 40em;
+}
+
+h1, h2, h3 {
     text-align: center;
 }
 
-img, iframe {
+h1 {
+    font-size: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.6em;
+    margin-top: 1em;
+    margin-bottom: 0.65em;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin-top: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* figure */
+
+figure:not(:has(canvas)) {
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+figure img, figure iframe {
     width: 100%;
     max-width: 30em;
     height: auto;
+    border-radius: 0.5em;
 }
 
 iframe {
+    width: 30em !important;
     aspect-ratio: 16/9;
+}
+
+figure img {
+    cursor: pointer;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+/* tabele */
+
+table {
+    text-align: center;
+}
+
+th, td {
+    padding: 0 0.5em;
+}
+
+/* header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 3em;
+    border: #ddd solid 0;
+    border-bottom-width: 0.5em;
+}
+
+header span {
+    color: #444;
+}
+
+header span#header-pd1 {
+    font-size: 1.55em;
+}
+
+header span#header-spagetolom {
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    margin-top: 6em;
+    border: #ddd solid 0;
+    border-top-width: 0.5em;
+}
+
+footer img#fmf-logo {
+    max-width: 90vw;
+    max-height: 5em;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+footer p {
+    margin: 0;
+    padding: 0.1em 0;
+    color: #444;
 }

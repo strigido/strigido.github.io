@@ -1,3 +1,4 @@
 - slika od gonilnika
 - `favicon.ico`
 - sklici naj ob kliku scrollajo stran tako, da bo figure na sredini zaslona
+- narediti kaj glede tiste dolge enačbe, ki poveča širino strani na telefonu

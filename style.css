@@ -74,6 +74,7 @@ iframe {
 
 figure img {
     cursor: pointer;
+    max-height: 20em;
 }
 
 figcaption {

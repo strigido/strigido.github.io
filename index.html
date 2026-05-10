@@ -16,37 +16,70 @@
 
         const grafSt = x => x.toFixed(3).replace('.', ',');
     </script>
+    <!-- sklicevanje -->
+    <script>
+        const GRAF = "Graf";
+        const SLIKA = "Fotografija"
+        const VIDEO = "Video"
+
+        const refs = { label2lastc: {}, id2c: {}, id2figId: {} };
+
+        function setRef(label, id) {
+            if (refs.label2lastc[label] === undefined) {
+                refs.label2lastc[label] = 0;
+            }
+            refs.id2c[id] = ++refs.label2lastc[label];
+            const c = refs.id2c[id];
+            const span = `<span id="${id}">${label} ${c}:</span> `;
+            document.write(span);
+            // nastavi figure id
+            const figure = document.querySelector(`figure:has(#${id})`);
+            if (!figure) return;
+            figure.id = id + "-figure";
+            refs.id2figId[id] = figure.id;
+        }
+
+        function getRef(id) {
+            if (refs.id2c[id] === undefined) {
+                document.write("<REF>");
+            }
+            const figureId = refs.id2figId[id] ?? id;
+            const link = `<a href="#${figureId}">${refs.id2c[id]}<a>`;
+            document.write(link);
+        }
+    </script>
   </head>
   <body>
     <main>
         <h1>Špagetolom</h1>
 
+
         <!-- UPOGIBANJE ŠPAGETOV -->
 
         <h1>Upogibanje špagetov</h1>
         <p>
-            Zanimalo nas je, ali se bo lomljivost špagetov spremenila, če jih velikokrat upognemo. Za izvedbo tega poskusa smo si pomagali s funkcijskim generatorjem in gonilnikom signala (Wave Driver). Vrsto špagetov smo na koncih pritrdili na lesena bloka, oddaljena 20 cm, na sredini pa so bili podprti s prečko, ki je nihala gor in dol z nastavljeno frekvenco. To, da je dejanska frekvenca nihanja bila res enaka nastavljeni, smo potrdili tako, da smo nihanje posneli s 120 sličicami na sekundo in video analizirali.
+            Zanimalo nas je, ali se bo lomljivost špagetov spremenila, če jih velikokrat upognemo. Za izvedbo tega poskusa smo si pomagali s funkcijskim generatorjem in gonilnikom signala (Wave Driver). Vrsto špagetov smo na koncih pritrdili na lesena bloka, oddaljena 20&nbsp;cm, na sredini pa so bili podprti s prečko, ki je nihala gor in dol z nastavljeno frekvenco. To, da je dejanska frekvenca nihanja bila res enaka nastavljeni, smo potrdili tako, da smo nihanje posneli s 120 sličicami na sekundo in video analizirali.
         </p>
         <figure>
             <img src="./media/funkcijski_generator.jpg" alt="Fotografija uporabljenega funkcijskega generatorja" loading="lazy">
-            <figcaption>Uporabljen funkcijski generator</figcaption>
+            <figcaption><script>setRef(SLIKA, "ref-slika-funkcijski-generator")</script> uporabljen funkcijski generator</figcaption>
         </figure>
         <figure>
             <img src="./media/upognjevalec.jpg" alt="Fotografija upognjevalca špagetov" loading="lazy">
-            <figcaption>Upognjevalec špagetov</figcaption>
+            <figcaption><script>setRef(SLIKA, "ref-slika-upognjevalec")</script> upognjevalec špagetov</figcaption>
         </figure>
         <figure>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/S8Q_l8cOnb8?si=80C08Z5BOjY9eJLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <figcaption>Upočasnjen posnetek upogibanja špagetov</figcaption>
+            <figcaption><script>setRef(VIDEO, "ref-video-upogibanje")</script> upočasnjen posnetek upogibanja špagetov</figcaption>
         </figure>
         <p>
-            Gonilnik smo med poskusom štirikrat ustavili in izmerili lomilno silo pri 20 cm razmiku med podporama, vsakič za 8 špagetov. Pri tem smo iz časa upogibanja \(t\) in frekvence \(\nu\) izračunali tudi približno št. nihajev \(N=\nu t\). Začeli smo s frekvenco 10 Hz, potem pa smo zaradi časovne omejitve po prvi ustavitvi frekvenco zvišali na 20 Hz, po drugi ustavitvi pa na 30 Hz.
+            Gonilnik smo med poskusom štirikrat ustavili in izmerili lomilno silo pri 20&nbsp;cm razmiku med podporama, vsakič za 8 špagetov. Pri tem smo iz časa upogibanja \(t\) in frekvence \(\nu\) izračunali tudi približno št. nihajev \(N=\nu t\). Začeli smo s frekvenco 10&nbsp;Hz, potem pa smo zaradi časovne omejitve po prvi ustavitvi frekvenco zvišali na 20&nbsp;Hz, po drugi ustavitvi pa na 30&nbsp;Hz.
         </p>
 
         <h2>Rezultati</h2>
         <figure>
             <canvas id="upogibanje-graf"></canvas>
-            <figcaption>Graf lomilne sile v odvisnosti od nihajev</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-upogibanje")</script> lomilna sila v odvisnosti od nihajev</figcaption>
             <script>
                 new Chart(document.getElementById('upogibanje-graf'), {
                 type: 'scatterWithErrorBars',
@@ -111,6 +144,108 @@
             Poskus bi lahko ponovili še s snopi špagetov, da ugotovimo, ali tudi za snope odvisnost sile od upogibov izgleda enako.
         </p>
 
+
+        <!-- MOČENJE ŠPAGETOV -->
+
+        <h1>Močenje špagetov</h1>
+        <p>
+            Površinsko smo preverili tudi vpliv namakanja špagetov na lomno silo. To smo preverili za posamezne špagete N°1 in za snop 15 špagetov. Namakali smo jih v vodi s sobno temperaturo 22,6&nbsp;°C.
+        </p>
+        <figure>
+            <table>
+                <tr>
+                    <th>razdalja (cm)</th>
+                    <th>sila (N)</th>
+                    <th>čas (min)</th>
+                    <th>število</th>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>0,449</td>
+                    <td>20</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>0,374</td>
+                    <td>20</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>0,351</td>
+                    <td>20</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>0,366</td>
+                    <td>20</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>0,389</td>
+                    <td>20</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </figure>
+        <figure>
+            <table>
+                <tr>
+                    <th>razdalja (cm)</th>
+                    <th>sila (N)</th>
+                    <th>čas (min)</th>
+                    <th>število</th>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>2,564</td>
+                    <td>20</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>2,141</td>
+                    <td>20</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>1,960</td>
+                    <td>20</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>11,5</td>
+                    <td>2,156</td>
+                    <td>20</td>
+                    <td>15</td>
+                </tr>
+            </table>
+        </figure>
+        <p>
+            Sila, potrebna za zlom enega namočenega špageta, je bila 0,39&nbsp;N&nbsp;±&nbsp;0,04&nbsp;N, za zlom suhega špageta pa 0,73&nbsp;N ±&nbsp;0,07&nbsp;N.
+        </p>
+        <p>
+            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafov [ref] in [ref] (vpliv debeline na silo) (TODO, test sklic: <script>getRef("ref-graf-upogibanje")</script>):
+        </p>
+        \[
+            F_{\mathrm{N°3}} (n)=n(0{,}77 \,\mathrm N \pm 0{,}05 \,\mathrm N) + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)
+        \]
+        \[
+            F_{\mathrm{N°1}} (n)=0{,}565⋅F_{\mathrm{N°3}} (n)
+        \]
+        \[
+            F_{\mathrm{N°1}} (15)=8{,}1 \,\mathrm N \pm 1{,}2 \,\mathrm N
+        \]
+        <p>
+            Lomilna sila za en špaget se je z 20-minutnim namakanjem zmanjšala za 46&nbsp;%, za snop 15 špagetov pa za 72&nbsp;%.
+        </p>
+        <p>
+            Potrdimo lahko torej, da 20-minutno namakanje zmanjša odpornost špagetov na zlom.
+        </p>
     </main>
   </body>
 </html>

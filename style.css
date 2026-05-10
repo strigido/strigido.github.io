@@ -11,8 +11,12 @@ h1 {
     text-align: center;
 }
 
-img {
+img, iframe {
     width: 100%;
     max-width: 30em;
     height: auto;
+}
+
+iframe {
+    aspect-ratio: 16/9;
 }

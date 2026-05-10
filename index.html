@@ -47,7 +47,7 @@
                     document.write("<REF>");
                 }
                 const figureId = refs.id2figId[id] ?? id;
-                const link = `<a href="#${figureId}">${refs.id2c[id]}</a>`;
+                const link = `<a class="ref-link" href="#${figureId}">${refs.id2c[id]}</a>`;
                 span.innerHTML = link;
             }
             document.write(`<span id="tempGetRefSpan"></span>`);

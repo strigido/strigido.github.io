@@ -6,7 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projektno delo 2026 - Špagetolom</title>
     <link rel="stylesheet" href="./style.css">
+    <!-- mathjax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <!-- grafi -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-error-bars"></script>
+    <script>
+        Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
+
+        const grafSt = x => x.toFixed(3).replace('.', ',');
+    </script>
   </head>
   <body>
     <main>
@@ -35,6 +44,66 @@
         </p>
 
         <h2>Rezultati</h2>
+        <figure>
+            <canvas id="upogibanje-graf"></canvas>
+            <figcaption>Graf lomilne sile v odvisnosti od nihajev</figcaption>
+            <script>
+                new Chart(document.getElementById('upogibanje-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        data: [
+                            { x: 0, y: 0.580222222, yMin: 0.485148859, yMax: 0.675295586 },
+                            { x: 27000, y: 0.7615, yMin: 0.642186487, yMax: 0.880813513 },
+                            { x: 63000, y: 0.987, yMin: 0.864634038, yMax: 1.109365962 },
+                            { x: 81000, y: 0.992857143, yMin: 0.720543336, yMax: 1.26517095 },
+                            { x: 109800, y: 0.9175, yMin: 0.774174197, yMax: 1.060825803 },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'nihaji',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'sila (N)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `nihaji: ${p.x} | sila: ${grafSt(p.y)} N ± ${grafSt(yErr)} N`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: false,
+                        },
+                    },
+                },
+                });
+            </script>
+        </figure>
         <p>
             Pridobljeni podatki nakazujejo na to, da sila, potrebna za zlom špageta, na začetku s številom nihajev narašča, nato pa se ustali. Da bi to zares potrdili, bi morali poskus ponoviti tako, da vmes ne bi spreminjali frekvence upogibanja. Morda je ravno sprememba frekvence na 30 Hz, po 2. ustavitvi, povzročila to, da sila ni več naraščala.
         </p>

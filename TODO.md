@@ -1,2 +1,3 @@
 - slika od gonilnika
 - `favicon.ico`
+- sklici naj ob kliku scrollajo stran tako, da bo figure na sredini zaslona

@@ -42,12 +42,23 @@
         }
 
         function getRef(id) {
-            if (refs.id2c[id] === undefined) {
-                document.write("<REF>");
+            function fn() {
+                if (refs.id2c[id] === undefined) {
+                    document.write("<REF>");
+                }
+                const figureId = refs.id2figId[id] ?? id;
+                const link = `<a href="#${figureId}">${refs.id2c[id]}</a>`;
+                span.innerHTML = link;
             }
-            const figureId = refs.id2figId[id] ?? id;
-            const link = `<a href="#${figureId}">${refs.id2c[id]}</a>`;
-            document.write(link);
+            document.write(`<span id="tempGetRefSpan"></span>`);
+            const span = document.getElementById("tempGetRefSpan");
+            span.removeAttribute("id");
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", fn);
+            } else {
+                fn();
+            }
         }
     </script>
     <!-- kliki na slike jih povečajo -->

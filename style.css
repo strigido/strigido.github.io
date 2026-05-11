@@ -21,6 +21,8 @@ p {
 
 h1, h2, h3 {
     text-align: center;
+    align-self: center;
+    width: 90%;
 }
 
 h1 {

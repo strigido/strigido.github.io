@@ -1,6 +1,5 @@
 
 - `favicon.ico`
-- sklici naj ob kliku scrollajo stran tako, da bo figure na sredini zaslona
 - narediti kaj glede tiste dolge enačbe, ki poveča širino strani na telefonu
 - zapiši \(F_{lom}(x)\) z vsemi decimalkami?
 - slike pri načinih vpetja

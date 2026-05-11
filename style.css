@@ -17,6 +17,7 @@ p {
     align-self: center;
     text-align: justify;
     max-width: 40em;
+    z-index: 100;
 }
 
 h1, h2, h3 {
@@ -54,6 +55,8 @@ main {
     max-width: 50em;
 }
 
+/* sklici */
+
 a.ref-link {
     text-decoration: none;
     background: #444;
@@ -63,7 +66,19 @@ a.ref-link {
     padding: 0 0.2em;
 }
 
+span:has(a.ref-link) {
+    position: relative;
+    z-index: 100;
+}
+
 /* figure */
+
+figure {
+    /* ZA TO, DA SKLICI DELUJEJO PRAVILNO: */
+    /*margin-top: 1.5em;*/
+    margin-top: -8.8em;
+    padding-top: 10.0em;
+}
 
 figure:not(:has(canvas)) {
     align-self: center;

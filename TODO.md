@@ -7,6 +7,7 @@
 ## kaj je še treba omeniti
 
 - Kateri silomer smo uporabljali, dve natančnosti
+- variacija v debelini špagetov
 - po določenem številu upogibov zgleda da začne sila padati
 
 ## POENOTENJE (za dogovoriti se)

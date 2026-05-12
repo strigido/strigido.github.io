@@ -15,3 +15,4 @@
 - imena funkcij
 - podnaslovi ("Rezultati" itd.)
 - sklicevanje na vse figure
+- poimenovanje špagetov (N°5, N5, °5)

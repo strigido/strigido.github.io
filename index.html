@@ -79,13 +79,85 @@
         <span id="header-pd1">PROJEKTNO DELO 1</span>
         <span id="header-spagetolom">ŠPAGETOLOM</span>
         <nav id="povezave">
-            <a href="#snopi-spagetov">Snopi špagetov</a>
-            <a href="#upogibanje-spagetov">Upogibanje špagetov</a>
-            <a href="#mocenje-spagetov">Močenje špagetov</a>
+            <a href="#razdalja-in-debelina">Razdalja med podporami in debeline</a>
+            <a href="#snopi-spagetov">Snopi</a>
+            <a href="#upogibanje-spagetov">Upogibanje</a>
+            <a href="#mocenje-spagetov">Močenje</a>
         </nav>
     </header>
 
     <main>
+        <!-- VPLIV RAZDALJE MED PODPORAMI IN DEBELINE ŠPAGETOV NA LOMILNO SILO -->
+        <h1 id="razdalja-in-debelina">
+            Vpliv razdalje med podporami in debeline špagetov na lomilno silo
+        </h1>
+        <p>
+            V poskusu smo opazovali mehanske lastnosti špagetov, konkretno njihovo odpornost na lom pri različnih geometrijskih pogojih. Da bi bili čim bolj natančni, smo uporabili posebne podstavke (škatlice z različno širokimi luknjami) v katere smo vstavili špagete. Podstavke smo nato tudi obtežili z utežmi in jih razmaknili za določeno razdaljo.
+        </p>
+        <p>
+            Najprej nas je zanimalo, kako debelina špageta vpliva na silo, potrebno, da se špaget zlomi. Tako smo najprej na razdalji 20 cm testirali N1° nato N3°  in nazadnje se N5°. Iz meritev se jasno vidi, da debelejši špageti zdržijo bistveno večjo silo. To lahko tudi potrdimo z enačbo za vztrajnostni moment ploskve, ki pri okroglem prerezu narašča s četrto potenco polmera. Torej že majhno povečanje debeline špageta poveča njegovo odpornost.
+        </p>
+        <figure>
+            <canvas id="debelina-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-debelina")</script> odvisnost lomilne sile od debeline špagetov</figcaption>
+            <!--<script>
+                new Chart(document.getElementById('debelina-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        data: [
+                            { x: 0, y: 0.580222222, xMin: 0, xMax: 1000, yMin: 0.485148859, yMax: 0.675295586 },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'debelina (mm)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'sila (N)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `nihaji: ${p.x} | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: false,
+                        },
+                    },
+                },
+                });
+            </script>-->
+        </figure>
+        <p>
+            Poskus smo nato nadaljevali z isto debelino špagetov, in sicer z d=1,169 mm, pri različnih razdaljah med podporama (20 cm; 7,5 cm; 6 cm; 5 cm; 4 cm). Zanimalo nas je kako razdalja vpliva na silo, ki je potrebna, da se špaget zlomi. Iz grafa vidimo, da se sila, potrebna, da se špaget zlomi, manjša z oddaljenostjo med podporama. To pa lahko pojasnimo z navorom, daljša kot je razdalja večji je navor pri isti sili. Zato pri večjih razdaljah potrebuje manjšo silo, da špaget zlomimo. 
+        </p>
+
+
         <!-- SNOPI ŠPAGETOV -->
         <h1 id="snopi-spagetov">
             Vpliv števila špagetov v snopu na lomilno silo

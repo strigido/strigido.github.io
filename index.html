@@ -98,15 +98,19 @@
             Najprej nas je zanimalo, kako debelina špageta vpliva na silo, potrebno, da se špaget zlomi. Tako smo najprej na razdalji 20 cm testirali N1° nato N3°  in nazadnje se N5°. Iz meritev se jasno vidi, da debelejši špageti zdržijo bistveno večjo silo. To lahko tudi potrdimo z enačbo za vztrajnostni moment ploskve, ki pri okroglem prerezu narašča s četrto potenco polmera. Torej že majhno povečanje debeline špageta poveča njegovo odpornost.
         </p>
         <figure>
+            <img src="./media/graf_debelina.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-debelina")</script> odvisnost lomilne sile od debeline špagetov</figcaption>
+        </figure>
+        <!--<figure>
             <canvas id="debelina-graf"></canvas>
             <figcaption><script>setRef(GRAF, "ref-graf-debelina")</script> odvisnost lomilne sile od debeline špagetov</figcaption>
-            <!--<script>
+            <script>
                 new Chart(document.getElementById('debelina-graf'), {
                 type: 'scatterWithErrorBars',
                 data: {
                     datasets: [{
                         data: [
-                            { x: 0, y: 0.580222222, xMin: 0, xMax: 1000, yMin: 0.485148859, yMax: 0.675295586 },
+                            { x: 1.413, y: 1.158, xMin: NaN, xMax: NaN, yMin: NaN, yMax: NaN },
                         ],
 
                         pointRadius: 10,
@@ -139,9 +143,10 @@
                                 label(ctx) {
                                     const p = ctx.raw;
 
+                                    const xErr = ((p.xMax - p.xMin) / 2);
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `nihaji: ${p.x} | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                    return `debelina: ${grafSt(p.y, 2)} mm ± ${grafSt(p.y, 2)} mm | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
                                 },
                             },
                         },
@@ -151,10 +156,165 @@
                     },
                 },
                 });
-            </script>-->
-        </figure>
+            </script>
+        </figure>-->
         <p>
             Poskus smo nato nadaljevali z isto debelino špagetov, in sicer z d=1,169 mm, pri različnih razdaljah med podporama (20 cm; 7,5 cm; 6 cm; 5 cm; 4 cm). Zanimalo nas je kako razdalja vpliva na silo, ki je potrebna, da se špaget zlomi. Iz grafa vidimo, da se sila, potrebna, da se špaget zlomi, manjša z oddaljenostjo med podporama. To pa lahko pojasnimo z navorom, daljša kot je razdalja večji je navor pri isti sili. Zato pri večjih razdaljah potrebuje manjšo silo, da špaget zlomimo. 
+        </p>
+        <figure>
+            <img src="./media/graf_razdalja.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
+        </figure>
+        <!--<figure>
+            <canvas id="razdalja-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
+            <script>
+                new Chart(document.getElementById('razdalja-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        data: [
+                            { x: NaN, y: NaN, xMin: NaN, xMax: NaN, yMin: NaN, yMax: NaN },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'razdalja med podporami (cm)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'sila (N)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const xErr = ((p.xMax - p.xMin) / 2);
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `debelina: ${grafSt(p.y, 2)} mm ± ${grafSt(p.y, 2)} mm | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: false,
+                        },
+                    },
+                },
+                });
+            </script>
+        </figure>-->
+        <p>
+            Nato nas je zanimala še lomna napetost (\(\sigma\)). Ta nam pove pri kolikšnem notranjem pritisku material poči. Teoretično bi morala biti za isti material konstantna, saj je odvisna le od strukture materiala, proizvodnih procesov in temperature.
+        </p>
+        <figure>
+            <img src="./media/graf_lomna_napetost.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost")</script> odvisnost lomne napetosti od razdalje med podporami</figcaption>
+        </figure>
+        <!--<figure>
+            <canvas id="lomna-napetost-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost")</script> odvisnost lomne napetosti od razdalje med podporami</figcaption>
+            <script>
+                new Chart(document.getElementById('lomna-napetost-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        data: [
+                            { x: NaN, y: NaN, xMin: NaN, xMax: NaN, yMin: NaN, yMax: NaN },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'razdalja med podporami (cm)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'lomna napetost (MPa)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const xErr = ((p.xMax - p.xMin) / 2);
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `debelina: ${grafSt(p.y, 2)} mm ± ${grafSt(p.y, 2)} mm | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: false,
+                        },
+                    },
+                },
+                });
+            </script>
+        </figure>-->
+        <figure>
+            <img src="./media/graf_lomna_napetost_debelina.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-debelina")</script> odvisnost lomne napetosti od debeline špagetov</figcaption>
+        </figure>
+        <p>
+            Pri meritvah vpliva debeline d smo opazovali špagete treh različnih debelin (d1=1,169 mm; d2=1,413 mm; d3=1,817 mm). Izračunane lomne napetosti \(\sigma\) se gibljejo v območju od 173,94 MPa do 196,22 MPa. Na grafu lahko opazimo, da se lomna napetost z večanjem debeline rahlo manjša. Teoretično bi morala biti lomna napetost neodvisna od debeline, v praksi pa lahko pride do rahlih nihanj vrednosti \(\sigma\), zaradi nehomogenosti materiala (majhne razpoke, zračni mehurčki itd.). K napaki prispeva tudi majhna količina meritev.
+        </p>
+        <p>
+            Pri meritvah vpliva razdalje L med podporama (L1=20 cm; L2=7,5 cm; L3=6 cm; L4=5 cm; L5=3 cm) smo izračunali lomne napetosti, ki se gibljejo med 134,09 MPa in 185,09 MPa. Na grafu lahko opazimo, da se lomna napetost s povečevanjem razdalje rahlo dviga. Pri večji razdalji med podporama se namreč špaget ne obnaša več le prečno ampak prevladujejo upogibne napetosti (špaget se pred zlomom upogne). Razdalja med podporama neposredno vpliva na to, ali se material zlomi zaradi čistega striga ali zaradi upogiba. Pri večjih razdaljah se špaget obnaša bolj prožno.
+        </p>
+        \[ \sigma = \frac{8FL}{\pi d^3} \]
+
+        <h2>Ukrivljenost/upogib pred zlomom</h2>
+        <p>
+            Med meritvami vpliva debeline \(d\) in razdalje \(L\) na silo, ki je potrebna, da špaget zlomimo, smo zraven opazovali tudi upogib špageta (koliko se upogne tik preden poči). To smo storili tako, da smo vsako meritev posneli in nato s posnetka razbrali "višino" raztezka oz. upogib.
+        </p>
+        <figure>
+            <img src="./media/graf_ukrivljenost_razdalja.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-razdalja")</script> odvisnost ukrivljenosti od razdalje med podporama</figcaption>
+        </figure>
+        <figure>
+            <img src="./media/graf_ukrivljenost_debelina.png" alt="Slika grafa" loading="lazy">
+            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-debelina")</script> odvisnost ukrivljenosti od debeline špagetov</figcaption>
+        </figure>
+        <p>
+            Iz grafov se jasno vidi, da na ukrivljenost vpliva tako debelina kot tudi razdalja med podporama. Z večanjem debeline se ukrivljenost zmanjšuje, z večanjem razdalje pa se ukrivljenost povečuje. Tako smo ugotovili, da je špaget najbolj elastičen, ko je tanek in dolg. Nasprotno pa so kratki in debeli špageti bolj togi in se zlomijo že pri minimalnem upogibu.
+        </p>
+        <p>
+            Kot smo že prej ugotovili, daljši kot je špaget, večji je navor in tako že majhna sila povzroči deformacijo. In debelejši kot je špaget, večji je vztrajnostni moment ploskve in težje pride do deformacije/upogiba.
         </p>
 
 

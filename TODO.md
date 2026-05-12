@@ -7,6 +7,7 @@
 ## kaj je še treba omeniti
 
 - Kateri silomer smo uporabljali, dve natančnosti
+- po določenem številu upogibov zgleda da začne sila padati
 
 ## POENOTENJE (za dogovoriti se)
 - uskladi zapise kot je npr. \(L = 11,5 cm\). Bo to v MathJaxu ali ne?

@@ -157,6 +157,7 @@ header span#header-spagetolom {
 header nav#povezave {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.3em;
     margin-top: 0.5em;
 }

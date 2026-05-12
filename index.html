@@ -79,6 +79,7 @@
         <span id="header-pd1">PROJEKTNO DELO 1</span>
         <span id="header-spagetolom">ŠPAGETOLOM</span>
         <nav id="povezave">
+            <a href="#uvod">Uvod</a>
             <a href="#razdalja-in-debelina">Razdalja med podporami in debeline</a>
             <a href="#snopi-spagetov">Snopi</a>
             <a href="#upogibanje-spagetov">Upogibanje</a>
@@ -87,15 +88,55 @@
     </header>
 
     <main>
+        <!-- UVOD -->
+        <h1 id="uvod">
+            Uvod
+        </h1>
+        <p>
+            V okviru projektnega dela <i>Špagetolom</i> smo raziskovali, od katerih relevantnih parametrov je odvisna največja sila, s katero moramo delovati na snop špagetov v prečni smeri, da ga zlomimo. Odločili smo se, da bomo raziskali vpliv:
+        </p>
+        <ul>
+            <li>debeline špagetov,</li>
+            <li>razdalje med podporama, na katerih so špageti postavljeni,</li>
+            <li>števila špagetov v snopu,</li>
+            <li>ponavljajočega upogibanja in</li>
+            <li>namakanja v vodi.</li>
+        </ul>
+        <p>
+            Večino poskusov smo izvedli na špagetih znamke <i>Barilla</i>. Delali smo s špageti treh različnih debelin: N°1 (fotografija <script>getRef("ref-spageti-n1")</script>), N°3 in N°5. Špageti debeline N°1 in N°5 so bili sveži, špageti debeline N°3 pa so bili stari že več kot desetletje. Predvidevali smo, da to nima velikega vpliva na rezultate in tega tudi nismo opazili.
+        </p>
+        <figure>
+            <img src="./media/spageti_n1.jpg" alt="Fotografija špagetov Barilla Capellini N°1" loading="lazy">
+            <figcaption><script>setRef(SLIKA, "ref-spageti-n1")</script> špageti Barilla Capellini N°1</figcaption>
+        </figure>
+        <p>
+            Za vse meritve smo uporabili isti digitalni silomer podjetja <i>Vernier</i>, ki ima dve nastavitvi za ločljivost. Večinoma smo uporabljali natančnejšo nastavitev, pri snopih, kjer je merjena sila šla nad 10 N, pa smo uporabljali manj natančno nastavitev.
+        </p>
+        <p>
+            Večino meritev smo izvedli s posameznimi špageti, ker domnevamo, da lahko spoznanja o posameznih špagetih prenesemo na snope.
+        </p>
+
+
         <!-- VPLIV RAZDALJE MED PODPORAMI IN DEBELINE ŠPAGETOV NA LOMILNO SILO -->
         <h1 id="razdalja-in-debelina">
             Vpliv razdalje med podporami in debeline špagetov na lomilno silo
         </h1>
         <p>
-            V poskusu smo opazovali mehanske lastnosti špagetov, konkretno njihovo odpornost na lom pri različnih geometrijskih pogojih. Da bi bili čim bolj natančni, smo uporabili posebne podstavke (škatlice z različno širokimi luknjami) v katere smo vstavili špagete. Podstavke smo nato tudi obtežili z utežmi in jih razmaknili za določeno razdaljo.
+            Za namene raziskovanja smo s 3D tiskalnikom natisnili posebni podpori (fotografija <script>getRef("ref-foto-podpora")</script>), ki sta nam omogočali enostavno fiksiranje špagetov različnih debelin na konstantnih razdaljah. Da se podpori nista premikali, smo jih med merjenjem z lepilnim trakom prilepili na površino in utežili.
         </p>
+        <figure>
+            <img src="./media/podpora.jpg" alt="Fotografija podpore" loading="lazy">
+            <figcaption><script>setRef(SLIKA, "ref-foto-podpora")</script> ena izmed podpor, natisnjenih s 3D tiskalnikom</figcaption>
+        </figure>
         <p>
-            Najprej nas je zanimalo, kako debelina špageta vpliva na silo, potrebno, da se špaget zlomi. Tako smo najprej na razdalji 20 cm testirali N1° nato N3°  in nazadnje se N5°. Iz meritev se jasno vidi, da debelejši špageti zdržijo bistveno večjo silo. To lahko tudi potrdimo z enačbo za vztrajnostni moment ploskve, ki pri okroglem prerezu narašča s četrto potenco polmera. Torej že majhno povečanje debeline špageta poveča njegovo odpornost.
+            S silomerom smo na špaget delovali s silo na sredini med podporama, dokler se špaget ni zlomil (fotografija <script>getRef("ref-poskus-razdalja")</script>). Tako smo izmerili največjo silo, ki je potrebna, da se špaget zlomi (lomilno silo).
+        </p>
+        <figure>
+            <img src="./media/poskus_razdalja.jpg" alt="Fotografija poskusa" loading="lazy">
+            <figcaption><script>setRef(SLIKA, "ref-poskus-razdalja")</script> fotografija poskusa</figcaption>
+        </figure>
+        <p>
+            Najprej nas je zanimalo, kako debelina špageta vpliva na silo, potrebno, da se špaget zlomi. Tako smo najprej na razdalji 20 cm testirali N°1 nato N°1  in nazadnje se N°5. Iz meritev se jasno vidi, da debelejši špageti zdržijo bistveno večjo silo. To lahko tudi potrdimo z enačbo za vztrajnostni moment ploskve, ki pri okroglem prerezu narašča s četrto potenco polmera. Torej že majhno povečanje debeline špageta poveča njegovo odpornost.
         </p>
         <figure>
             <img src="./media/graf_debelina.png" alt="Slika grafa" loading="lazy">

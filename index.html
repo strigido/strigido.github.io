@@ -389,7 +389,7 @@
         </p>
         <figure>
             <canvas id="snopi-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-snopi-upogibanje")</script> odvisnost lomilne sile od števila špagetov v snopu
+            <figcaption><script>setRef(GRAF, "ref-graf-snopi")</script> odvisnost lomilne sile od števila špagetov v snopu
             </figcaption>
             <script>
                 new Chart(document.getElementById('snopi-graf'), {
@@ -493,7 +493,7 @@
             kjer je \(F_1\) lomilna sila enega špageta, \(\eta(n)\) faktor učinkovitosti prenosa sile med špageti, \(F_{kontakt}\) pa popravek zaradi vpetja, trenja in začetnega kontakta. Če je \(\eta(n)\) v merjenem območju približno konstanten, dobimo linearno zvezo \( F_{lom}(n) \approx an + b \), kar se dobro ujema z eksperimentalnim grafom.
         </p>
         <p>
-            Opažen sekvenčni lom lahko opišemo tudi z modelom prerazporejanja sile. Če posamezen špaget v snopu nosi delež αi\alpha_iαi celotne sile, potem je sila na njem
+            Opažen sekvenčni lom lahko opišemo tudi z modelom prerazporejanja sile. Če posamezen špaget v snopu nosi delež \(\alpha_i\) celotne sile, potem je sila na njem
             \[ F_i = \alpha_i F, \]
             pri čemer velja
             \[ \sum_{i=1}^{n} \alpha_i = 1. \]
@@ -513,7 +513,7 @@
             \[ F_{lom}(15) = 14{.}37 \, \mathrm N \pm 2{.}01 \, \mathrm N. \]
         </p>
         <p>
-            Ta rezultat je smiseln, saj se dobro ujema z neposrednimi meritvami za snop petnajstih špagetov pri prvem načinu vpetja. Meritve pri drugem in tretjem načinu vpetja so dale nekoliko nižje vrednosti, vendar sklepamo, da se je sila manj enakomerno porazdelila po snopu in zato dobimo nižje vrednosti. Kljub temu potrjujejo, da način vpetja pomembno vpliva na končni rezultat.
+            Ta rezultat je smiseln, saj se dobro ujema z neposrednimi meritvami za snop petnajstih špagetov pri prvem načinu vpetja. Meritve pri drugem in tretjem načinu vpetja so dale nekoliko nižje vrednosti, vendar sklepamo, da se je sila manj enakomerno porazdelila po snopu in zato dobimo nižje vrednosti. Za potrditev tega, da način vpetja vpliva na lomilno silo, bi bilo treba izvesti več meritev.
         </p>
         <p>
             Iz meritev lahko zaključimo, da je število špagetov v snopu eden glavnih parametrov, ki določajo lomilno silo. V našem območju meritev je zveza med številom špagetov in lomilno silo približno linearna. To pomeni, da se odpornost snopa povečuje skoraj sorazmerno s številom špagetov, vendar snop zaradi neidealnega stika med špageti, nehomogenosti materiala in sekvenčnega loma ne deluje kot popolnoma homogena palica. 
@@ -610,7 +610,7 @@
             </script>
         </figure>
         <p>
-            Pridobljeni podatki nakazujejo na to, da sila, potrebna za zlom špageta, na začetku s številom nihajev narašča, nato pa se ustali. Da bi to zares potrdili, bi morali poskus ponoviti tako, da vmes ne bi spreminjali frekvence upogibanja. Morda je ravno sprememba frekvence na 30 Hz, po 2. ustavitvi, povzročila to, da sila ni več naraščala.
+            Pridobljeni podatki nakazujejo na to, da sila, potrebna za zlom špageta, na začetku s številom nihajev najprej narašča, nato pa začne padati. Da bi to zares potrdili, bi morali poskus ponoviti tako, da vmes ne bi spreminjali frekvence upogibanja. Morda je ravno sprememba frekvence na 30 Hz, po 2. ustavitvi, povzročila to, da sila ni več naraščala.
         </p>
         <p>
             Poskus bi lahko ponovili še s snopi špagetov, da ugotovimo, ali tudi za snope odvisnost sile od upogibov izgleda enako.
@@ -703,22 +703,22 @@
             Sila, potrebna za zlom enega namočenega špageta, je bila 0,39&nbsp;N&nbsp;±&nbsp;0,04&nbsp;N, za zlom suhega špageta pa 0,73&nbsp;N ±&nbsp;0,07&nbsp;N.
         </p>
         <p>
-            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafov [ref] in [ref] (vpliv debeline na silo) (TODO, test sklic: <script>getRef("ref-graf-upogibanje")</script>):
+            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafa <script>getRef("ref-graf-snopi")</script>:
         </p>
         \[
-            F_{\mathrm{N°3}} (n)=n(0{,}77 \,\mathrm N \pm 0{,}05 \,\mathrm N) + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)
+            F_{\mathrm{lom,N°3}} (n)=n(0{,}77 \,\mathrm N \pm 0{,}05 \,\mathrm N) + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)
         \]
         \[
-            F_{\mathrm{N°1}} (n)=0{,}565 \cdot F_{\mathrm{N°3}} (n)
+            F_{\mathrm{lom,N°1}} (n)=0{,}565 \cdot F_{\mathrm{lom,N°3}} (n)
         \]
         \[
-            F_{\mathrm{N°1}} (15)=8{,}1 \,\mathrm N \pm 1{,}2 \,\mathrm N
+            F_{\mathrm{lom,N°1}} (15)=8{,}1 \,\mathrm N \pm 1{,}2 \,\mathrm N
         \]
         <p>
             Lomilna sila za en špaget se je z 20-minutnim namakanjem zmanjšala za 46&nbsp;%, za snop 15 špagetov pa za 72&nbsp;%.
         </p>
         <p>
-            Potrdimo lahko torej, da 20-minutno namakanje zmanjša odpornost špagetov na zlom.
+            Potrdimo lahko torej, da 20-minutno namakanje zmanjša odpornost špagetov na zlom, za kaj več pa je potrebnih več meritev.
         </p>
     </main>
   </body>
